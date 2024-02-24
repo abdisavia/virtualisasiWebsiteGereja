@@ -39,7 +39,7 @@
 					"nama":"Ubuntu_Server2",
 					"path":"I:\\Abdi\\Perkuliahan\\Semester 6\\cloudVirtualization",
 					"MAC_addr_policy":"Include only NAT network adapter MAC addresses",
-					"tipe_Clone":"Full Clone"
+					"tipe_clone":"Full Clone"
 				    }
 		  }
 }
