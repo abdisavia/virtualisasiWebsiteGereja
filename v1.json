@@ -1,3 +1,25 @@
 {
-  "cek_vbox" : "ada",
+	"cek_vbox" : "ada",
+	"Mengubah pengaturan profil":{
+					"masuk-ke-ubuntuServer":"masukkan username dan password",
+					"mengecek_file_hostname":"ls /etc/hostname : ada",
+					"mengecek_nano":"nano : tidak ada",
+					"update_repositori":"sudo apt update",
+					"install_nano":"sudo apt install nano",
+					"ubah_filehostname":{
+							 "buka_file":"sudo nano /etc/hostname",
+							 "ganti_name":"abdi",
+							 "simpan":"ctrl+x"
+							}
+					"ubah_filehost":{
+							 "buka_file":"sudo nano /etc/hosts",
+							 "ubah":"127.0.1.1 website",
+							 "simpan":"ctrl+x"
+							},
+					"ubah_passwordUsr":{
+							   "perintah":"sudo passwd abdi",
+							   "new_pass":"123456",
+							},
+					"reboot_system":"sudo reboot"
+				},
 }
