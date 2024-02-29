@@ -122,4 +122,18 @@
 				"value":"berhasil"
 			}
 	},
+	"ssh_with_host":{
+			"konfigurasi_DNS_ubuntuServer":{
+							"membuka_file_hosts":"sudo nano /etc/hosts",
+							"menambahkan_hostname":"192.168.1.10 website",
+						},
+			"konfigurasi_SSH_windos":{
+						   "membuat_file_config":"nano ~/.ssh/config",
+						   "menambahkan_host":"ditambahkan"
+					}
+			"melakukan_koneksi_SSH":{
+						  "command":"ssh website",
+						  "status":"berhasil"
+						},
+		}
 }
