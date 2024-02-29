@@ -1,3 +1,32 @@
 {
   "cek_vbox" : "ada",
+  "ubah_NetworkSetting_ubuntu_server":"bridge adapter",
+  "cek_ipUbuntu_Server":{
+			  "command":"ip addr show",
+			  "value":"192.168.1.11",
+			},
+  "Connect_SSH_Ubuntu_Server":{
+				"command":"ssh abdi@192.168.1.11",
+			      	"status":"berhasil",
+			      },
+  "ubah_networkSetting_ubuntu_server2":"bridge adapter",
+  "cek_ipUbuntu_Server2":{
+			  "command":"ip addr show",
+			  "value" : "192.168.1.10"
+			},
+  "Connect_SSH_ubuntu_Server2":{
+				"command":"ssh abdi@192.168.1.10",
+				"status:"berhasil"
+			       },
+  "coba_Ping":{
+		"install_iputils":"sudo apt install iptils_ping",
+		"ping_ke_192.168.1.10":{
+					"command":"ping 192.168.1.10",
+					"value":"berhasil"
+					}
+		"ping_ke_192.168.1.8":{
+					"command":"ping 192.168.1.8",
+					"value":"berhasil"
+				}
+	},
 }
