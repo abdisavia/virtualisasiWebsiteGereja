@@ -1,5 +1,47 @@
 {
 	"cek_vbox" : "ada",
+	"Membuat Virtual Machine" : {
+				   "Cek_VM_ubuntuserver":"tidak ada",
+				   "buat_VM":"klik add",
+				   "gantiNama_VM":"Ubuntu_Server",
+				   "Ubah_alamat_Folder":"I:\\Abdi\\Perkuliahan\\Semester 6\\cloudVirtualization",
+				   "ISO_Image":"I:\\Abdi\\Perkuliahan\\Semester 6\\cloudVirtualization\\UbuntuServer\\ubuntu-22.04.3-live-server-amd64.iso",
+				   "gantiUsername_VM":"abdi",
+				   "gatiPassword_VM":"abdisavia",
+				   "mengatur_BaseMemory":"2048MB",
+				   "mengatur_Processor":"2",
+				   "Membuat_VirtualHDD":"16.48GB",
+				   "selesai":"Klik finish"
+				},
+	"install Ubuntu Server" : {
+				   "atur_bahasa":"English",
+				   "update_Installer":"Update to the new installer",
+				   "konfigurasi_keyboard":"Done",
+				   "type_Ubuntu":"Ubuntu Server (minimized)",
+				   "Koneksi_Jaringan":"Done",
+				   "Konfigurasi_proxy":"Done",
+				   "Konfigurasi_Ubuntu_Archive_mirror":"Done",
+				   "Konfigurasi_Penyimpanan_terpandu":"Done",
+				   "Konfigurasi_Penyimpanan":"Done",
+				   "Pengaturan_Profil":{
+							"nama":"abdi",
+							"nama_server":"abdi",
+							"username":"abdi",
+							"password":"abdisavia"
+						      },
+				   "tingkatkan_UbuntuPRO" : "Skip for now",
+				   "Pengaturan_SSH":"Done",
+				   "Fitur_Server":"Skip",
+				   "Reboot":"Reboot Now"
+				},
+	"Clone_VM":{
+		     "pengaturan_VM":{
+					"nama":"Ubuntu_Server2",
+					"path":"I:\\Abdi\\Perkuliahan\\Semester 6\\cloudVirtualization",
+					"MAC_addr_policy":"Include only NAT network adapter MAC addresses",
+					"tipe_clone":"Full Clone"
+				    }
+		  },
 	"Mengubah pengaturan profil":{
 					"masuk-ke-ubuntuServer":"masukkan username dan password",
 					"mengecek_file_hostname":"ls /etc/hostname : ada",
