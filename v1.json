@@ -1,3 +1,139 @@
 {
-  "cek_vbox" : "ada",
+  	"cek_vbox" : "ada",
+	"Membuat Virtual Machine" : {
+				   "Cek_VM_ubuntuserver":"tidak ada",
+				   "buat_VM":"klik add",
+				   "gantiNama_VM":"Ubuntu_Server",
+				   "Ubah_alamat_Folder":"I:\\Abdi\\Perkuliahan\\Semester 6\\cloudVirtualization",
+				   "ISO_Image":"I:\\Abdi\\Perkuliahan\\Semester 6\\cloudVirtualization\\UbuntuServer\\ubuntu-22.04.3-live-server-amd64.iso",
+				   "gantiUsername_VM":"abdi",
+				   "gatiPassword_VM":"abdisavia",
+				   "mengatur_BaseMemory":"2048MB",
+				   "mengatur_Processor":"2",
+				   "Membuat_VirtualHDD":"16.48GB",
+				   "selesai":"Klik finish"
+				},
+	"install Ubuntu Server" : {
+				   "atur_bahasa":"English",
+				   "update_Installer":"Update to the new installer",
+				   "konfigurasi_keyboard":"Done",
+				   "type_Ubuntu":"Ubuntu Server (minimized)",
+				   "Koneksi_Jaringan":"Done",
+				   "Konfigurasi_proxy":"Done",
+				   "Konfigurasi_Ubuntu_Archive_mirror":"Done",
+				   "Konfigurasi_Penyimpanan_terpandu":"Done",
+				   "Konfigurasi_Penyimpanan":"Done",
+				   "Pengaturan_Profil":{
+							"nama":"abdi",
+							"nama_server":"abdi",
+							"username":"abdi",
+							"password":"abdisavia"
+						      },
+				   "tingkatkan_UbuntuPRO" : "Skip for now",
+				   "Pengaturan_SSH":"Done",
+				   "Fitur_Server":"Skip",
+				   "Reboot":"Reboot Now"
+				},
+	"Clone_VM":{
+		     "pengaturan_VM":{
+					"nama":"Ubuntu_Server2",
+					"path":"I:\\Abdi\\Perkuliahan\\Semester 6\\cloudVirtualization",
+					"MAC_addr_policy":"Include only NAT network adapter MAC addresses",
+					"tipe_clone":"Full Clone"
+				    }
+		  },
+	"Mengubah pengaturan profil":{
+					"masuk-ke-ubuntuServer":"masukkan username dan password",
+					"mengecek_file_hostname":"ls /etc/hostname : ada",
+					"mengecek_nano":"nano : tidak ada",
+					"update_repositori":"sudo apt update",
+					"install_nano":"sudo apt install nano",
+					"ubah_filehostname":{
+							 "buka_file":"sudo nano /etc/hostname",
+							 "ganti_name":"abdi",
+							 "simpan":"ctrl+x"
+							}
+					"ubah_filehost":{
+							 "buka_file":"sudo nano /etc/hosts",
+							 "ubah":"127.0.1.1 website",
+							 "simpan":"ctrl+x"
+							},
+					"ubah_passwordUsr":{
+							   "perintah":"sudo passwd abdi",
+							   "new_pass":"123456",
+							},
+					"reboot_system":"sudo reboot"
+				},
+	"ubah_NetworkSetting_ubuntu_server":"bridge adapter",
+  "cek_ipUbuntu_Server":{
+			  "command":"ip addr show",
+			  "value":"192.168.1.11",
+			},
+  "Connect_SSH_Ubuntu_Server":{
+				"command":"ssh abdi@192.168.1.11",
+			      	"status":"berhasil",
+			      },
+  "ubah_networkSetting_ubuntu_server2":"bridge adapter",
+  "cek_ipUbuntu_Server2":{
+			  "command":"ip addr show",
+			  "value" : "192.168.1.10"
+			},
+  "Connect_SSH_ubuntu_Server2":{
+				"command":"ssh abdi@192.168.1.10",
+				"status:"berhasil"
+			       },
+  "coba_Ping":{
+		"install_iputils":"sudo apt install iptils_ping",
+		"ping_ke_192.168.1.10":{
+					"command":"ping 192.168.1.10",
+					"value":"berhasil"
+					}
+		"ping_ke_192.168.1.8":{
+					"command":"ping 192.168.1.8",
+					"value":"berhasil"
+				}
+	},
+"ubah_NetworkSetting_ubuntu_server":"bridge adapter",
+"cek_ipUbuntu_Server":{
+			  "command":"ip addr show",
+			  "value":"192.168.1.11",
+			},
+"Connect_SSH_Ubuntu_Server":{
+				"command":"ssh abdi@192.168.1.11",
+			      	"status":"berhasil",
+			      },
+"ubah_networkSetting_ubuntu_server2":"bridge adapter",
+"cek_ipUbuntu_Server2":{
+			  "command":"ip addr show",
+			  "value" : "192.168.1.10"
+			},
+"Connect_SSH_ubuntu_Server2":{
+				"command":"ssh abdi@192.168.1.10",
+				"status:"berhasil"
+			       },
+"coba_Ping":{
+	"install_iputils":"sudo apt install iptils_ping",
+	"ping_ke_192.168.1.10":{
+				"command":"ping 192.168.1.10",
+				"value":"berhasil"
+				}
+	"ping_ke_192.168.1.8":{
+				"command":"ping 192.168.1.8",
+				"value":"berhasil"
+			}
+	},
+	"ssh_with_host":{
+			"konfigurasi_DNS_ubuntuServer":{
+							"membuka_file_hosts":"sudo nano /etc/hosts",
+							"menambahkan_hostname":"192.168.1.10 website",
+						},
+			"konfigurasi_SSH_windos":{
+						   "membuat_file_config":"nano ~/.ssh/config",
+						   "menambahkan_host":"ditambahkan"
+					}
+			"melakukan_koneksi_SSH":{
+						  "command":"ssh website",
+						  "status":"berhasil"
+						},
+		}
 }
