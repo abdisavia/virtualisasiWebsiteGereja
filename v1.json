@@ -111,16 +111,16 @@
 				"command":"ssh abdi@192.168.1.10",
 				"status:"berhasil"
 			       },
-"coba_Ping":{
-	"install_iputils":"sudo apt install iptils_ping",
-	"ping_ke_192.168.1.10":{
-				"command":"ping 192.168.1.10",
-				"value":"berhasil"
-				}
-	"ping_ke_192.168.1.8":{
-				"command":"ping 192.168.1.8",
-				"value":"berhasil"
-			}
+	"coba_Ping":{
+			"install_iputils":"sudo apt install iptils_ping",
+			"ping_ke_192.168.1.10":{
+						"command":"ping 192.168.1.10",
+						"value":"berhasil"
+						}
+			"ping_ke_192.168.1.8":{
+						"command":"ping 192.168.1.8",
+						"value":"berhasil"
+						}
 	},
 	"ssh_with_host":{
 			"konfigurasi_DNS_ubuntuServer":{
@@ -135,5 +135,13 @@
 						  "command":"ssh website",
 						  "status":"berhasil"
 						},
+		}
+	"Install Node JS":{
+				"Memperbarui_Daftar_Paket":"sudo apt update",
+				"install GnuPG":"sudo apt install curl gnupg2",
+				"install NodeSource":"curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash -",
+				"install nodejs":"sudo apt-get install nodejs -y",
+				"check_node_version":"node -v",
+				"check_npm_version":"npm -v",
 		}
 }
