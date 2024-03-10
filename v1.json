@@ -136,7 +136,7 @@
 						  "status":"berhasil"
 						},
 		}
-	"Install Node JS":{
+	"Install_Node_JS":{
 				"Memperbarui_Daftar_Paket":"sudo apt update",
 				"install GnuPG":"sudo apt install curl gnupg2",
 				"install NodeSource":"curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash -",
@@ -144,4 +144,32 @@
 				"check_node_version":"node -v",
 				"check_npm_version":"npm -v",
 		}
-}
+	"membuat_webserver":{
+			    "install_Apache2":"sudo apt install apache2",
+			    "tambahkan_portForwardingBaru":{
+							     "ipHost":"0.0.0.0",
+							     "hostPort":"3000",
+							     "ipGuest":"10.0.2.15",
+							     "portGuest":"80"
+							},
+			    "konfigurasi_apache2":{
+				"langkah 1":"tambahkan servername pada konfigurasi apache2"
+				"langkah 2":"menambahkan ip vm sebagai servername untuk konfiguarsi apache2",
+				"langkah 3":"tambahkan virtual host file kedalam /etc/apache2/sites-available/000-default.conf",
+				"settingan_Proksi":{
+				 		    "ProxyPass":"ProxyPass / http://127.0.0.1:3000/ nocanon",
+						    "ProxyPassReverse":"ProxyPassReverse / http://127.0.0.1:3000/"
+						  }
+				"restart apache":"sudo systemctl restart apache2",
+				},
+			    "install_git":"sudo apt install git",
+			    "ambil_repository":{
+						 "buat_folder":"mkdir /home/abdi/projek",
+						 "clone_repo":"git clone urlRepo"
+					      },
+			    "install_dependency":"npm install",
+			    "testing":{
+					"jalankan_projek":"node server.js",
+					"akses menggunakan web browser":"berhasil"
+				    },
+			}
