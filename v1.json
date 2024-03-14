@@ -111,16 +111,16 @@
 				"command":"ssh abdi@192.168.1.10",
 				"status:"berhasil"
 			       },
-"coba_Ping":{
-	"install_iputils":"sudo apt install iptils_ping",
-	"ping_ke_192.168.1.10":{
-				"command":"ping 192.168.1.10",
-				"value":"berhasil"
-				}
-	"ping_ke_192.168.1.8":{
-				"command":"ping 192.168.1.8",
-				"value":"berhasil"
-			}
+	"coba_Ping":{
+			"install_iputils":"sudo apt install iptils_ping",
+			"ping_ke_192.168.1.10":{
+						"command":"ping 192.168.1.10",
+						"value":"berhasil"
+						}
+			"ping_ke_192.168.1.8":{
+						"command":"ping 192.168.1.8",
+						"value":"berhasil"
+						}
 	},
 	"ssh_with_host":{
 			"konfigurasi_DNS_ubuntuServer":{
@@ -136,4 +136,64 @@
 						  "status":"berhasil"
 						},
 		}
-}
+	"Install_Node_JS":{
+				"Memperbarui_Daftar_Paket":"sudo apt update",
+				"install GnuPG":"sudo apt install curl gnupg2",
+				"install NodeSource":"curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash -",
+				"install nodejs":"sudo apt-get install nodejs -y",
+				"check_node_version":"node -v",
+				"check_npm_version":"npm -v",
+		}
+	"membuat_webserver":{
+			    "install_Apache2":"sudo apt install apache2",
+			    "tambahkan_portForwardingBaru":{
+							     "ipHost":"0.0.0.0",
+							     "hostPort":"3000",
+							     "ipGuest":"10.0.2.15",
+							     "portGuest":"80"
+							},
+			    "konfigurasi_apache2":{
+				"langkah 1":"tambahkan servername pada konfigurasi apache2"
+				"langkah 2":"menambahkan ip vm sebagai servername untuk konfiguarsi apache2",
+				"langkah 3":"tambahkan virtual host file kedalam /etc/apache2/sites-available/000-default.conf",
+				"settingan_Proksi":{
+				 		    "ProxyPass":"ProxyPass / http://127.0.0.1:3000/ nocanon",
+						    "ProxyPassReverse":"ProxyPassReverse / http://127.0.0.1:3000/"
+						  }
+				"restart apache":"sudo systemctl restart apache2",
+				},
+			    "install_git":"sudo apt install git",
+			    "ambil_repository":{
+						 "buat_folder":"mkdir /home/abdi/projek",
+						 "clone_repo":"git clone urlRepo"
+					      },
+			    "install_dependency":"npm install",
+			    "testing":{
+					"jalankan_projek":"node server.js",
+					"akses menggunakan web browser":"berhasil"
+				    },
+			}
+	"membuat_DBServer":{
+			    "install_MySQL":"sudo apt install mysql-server",
+			    "konfigurasi_MySQL":{
+						   "ganti_bind-address":"127.0.0.1",
+						   "restart_mysql":"sudo systemctl restart mysql"
+						},
+			    "ijin_Akses_MySQL_LewatFirewall":"sudo ufw allow mysql"
+			    "buat_database":"CREATE DATABASE listPekerja;",
+			    "membuat_userLokal":"CREATE USER 'abdi'@'localhost' IDENTIFIED BY 'password';",
+			    "membuat_userRemote":"CREATE USER 'webserver'@'127.0.0.1' IDENTIFIED BY 'password';",
+			    "ijin_seluruhAksesdidatabase_listPekerja_localUser":"GRANT ALL PRIVILEGES ON listPekerja.* TO 'abdi'@'localhost';",
+			    "ijin_seluruhAksesdidatabase_listPekerja_remoteUeser":"GRANT ALL PRIVILEGES ON listPekerja.* TO 'webserver'@'127.0.0.1';",
+			},
+	"Test_remote_local_connection":{
+					  "login_userLokal":"mysql -u abdi -p",
+					  "status":"berhasil",
+					  "keluar":"exit",
+					  "login_userRemote":{
+								"ssh_ke_webserver":"ssh webserver",
+								"install_mysql-client":"sudo apt install mysql-client",
+								"coba_koneksi":"mysql -u webserver -h 127.0.0.1 -p"
+								"cek_status":"berhasil"
+							},
+				}
