@@ -176,15 +176,16 @@
 	"membuat_DBServer":{
 			    "install_MySQL":"sudo apt install mysql-server",
 			    "konfigurasi_MySQL":{
-						   "ganti_bind-address":"127.0.0.1",
+						   "ganti_bind-address":"0.0.0.0",
+						   "ganti_mysqlx-bind-address" : "0.0.0.0",
 						   "restart_mysql":"sudo systemctl restart mysql"
 						},
-			    "ijin_Akses_MySQL_LewatFirewall":"sudo ufw allow mysql"
+			    "ijin_Akses_webserver_ke_MySQL_LewatFirewall":"sudo ufw allow from 10.0.2.5 to any port 3306"
 			    "buat_database":"CREATE DATABASE listPekerja;",
 			    "membuat_userLokal":"CREATE USER 'abdi'@'localhost' IDENTIFIED BY 'password';",
 			    "membuat_userRemote":"CREATE USER 'webserver'@'127.0.0.1' IDENTIFIED BY 'password';",
 			    "ijin_seluruhAksesdidatabase_listPekerja_localUser":"GRANT ALL PRIVILEGES ON listPekerja.* TO 'abdi'@'localhost';",
-			    "ijin_seluruhAksesdidatabase_listPekerja_remoteUeser":"GRANT ALL PRIVILEGES ON listPekerja.* TO 'webserver'@'127.0.0.1';",
+			    "ijin_Aksesdidatabase_listPekerja_remoteUeser":"GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON listPekerja.* TO 'webserver'@'127.0.0.1';",
 			},
 	"Test_remote_local_connection":{
 					  "login_userLokal":"mysql -u abdi -p",
@@ -193,7 +194,7 @@
 					  "login_userRemote":{
 								"ssh_ke_webserver":"ssh webserver",
 								"install_mysql-client":"sudo apt install mysql-client",
-								"coba_koneksi":"mysql -u webserver -h 127.0.0.1 -p"
+								"coba_koneksi":"mysql -u webserver -h 10.0.2.6 -p"
 								"cek_status":"berhasil"
 							},
 				}
