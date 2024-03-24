@@ -180,3 +180,11 @@
 						"restart_uppermor":"sudo systemctl restart uppermor"
 						"nyalakan_database":"sudo systemctl start mysql",
 					},
+	"Install_Running_JDK":{
+				"Install_JDK_21":"sudo apt install openjdk-21-jdk",
+				"buat_File_java":"helloworld.java",
+				"buat_code_yang_menampilkan_Hello,World!":""
+				"compile_fileJava":"javac -d . Main.java",
+				"run_fileclass":"java myJavaProgram.Source.Main"
+				}
+}
