@@ -185,6 +185,6 @@
 				"buat_File_java":"helloworld.java",
 				"buat_code_yang_menampilkan_Hello,World!":""
 				"compile_fileJava":"javac -d . Main.java",
-				"run_fileclass":"java myJavaProgram.Source.Main"
+				"run_fileClass":"java myJavaProgram.Source.Main"
 				}
 }
