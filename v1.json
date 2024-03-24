@@ -64,75 +64,46 @@
 							},
 					"reboot_system":"sudo reboot"
 				},
-	"ubah_NetworkSetting_ubuntu_server":"bridge adapter",
+	"ubah_NetworkSetting_ubuntu_server":"natnetwork",
   "cek_ipUbuntu_Server":{
 			  "command":"ip addr show",
-			  "value":"192.168.1.11",
+			  "value":"10.0.2.5",
 			},
   "Connect_SSH_Ubuntu_Server":{
-				"command":"ssh abdi@192.168.1.11",
+				"command":"ssh abdi@10.0.2.5",
 			      	"status":"berhasil",
 			      },
-  "ubah_networkSetting_ubuntu_server2":"bridge adapter",
+  "ubah_networkSetting_ubuntu_server2":"natnetwork",
   "cek_ipUbuntu_Server2":{
 			  "command":"ip addr show",
-			  "value" : "192.168.1.10"
+			  "value" : "10.0.2.6"
 			},
   "Connect_SSH_ubuntu_Server2":{
-				"command":"ssh abdi@192.168.1.10",
+				"command":"ssh abdi@10.0.2.6",
 				"status:"berhasil"
 			       },
   "coba_Ping":{
 		"install_iputils":"sudo apt install iptils_ping",
-		"ping_ke_192.168.1.10":{
-					"command":"ping 192.168.1.10",
+		"ping_ke_10.0.2.6":{
+					"command":"ping 10.0.2.6",
 					"value":"berhasil"
 					}
-		"ping_ke_192.168.1.8":{
-					"command":"ping 192.168.1.8",
+		"ping_ke_10.0.2.5":{
+					"command":"ping 10.0.2.5",
 					"value":"berhasil"
 				}
-	},
-"ubah_NetworkSetting_ubuntu_server":"bridge adapter",
-"cek_ipUbuntu_Server":{
-			  "command":"ip addr show",
-			  "value":"192.168.1.11",
-			},
-"Connect_SSH_Ubuntu_Server":{
-				"command":"ssh abdi@192.168.1.11",
-			      	"status":"berhasil",
-			      },
-"ubah_networkSetting_ubuntu_server2":"bridge adapter",
-"cek_ipUbuntu_Server2":{
-			  "command":"ip addr show",
-			  "value" : "192.168.1.10"
-			},
-"Connect_SSH_ubuntu_Server2":{
-				"command":"ssh abdi@192.168.1.10",
-				"status:"berhasil"
-			       },
-	"coba_Ping":{
-			"install_iputils":"sudo apt install iptils_ping",
-			"ping_ke_192.168.1.10":{
-						"command":"ping 192.168.1.10",
-						"value":"berhasil"
-						}
-			"ping_ke_192.168.1.8":{
-						"command":"ping 192.168.1.8",
-						"value":"berhasil"
-						}
 	},
 	"ssh_with_host":{
 			"konfigurasi_DNS_ubuntuServer":{
 							"membuka_file_hosts":"sudo nano /etc/hosts",
-							"menambahkan_hostname":"192.168.1.10 website",
+							"menambahkan_hostname":"10.0.2.5 webserver",
 						},
-			"konfigurasi_SSH_windos":{
+			"konfigurasi_SSH_windows":{
 						   "membuat_file_config":"nano ~/.ssh/config",
 						   "menambahkan_host":"ditambahkan"
 					}
 			"melakukan_koneksi_SSH":{
-						  "command":"ssh website",
+						  "command":"ssh webserver",
 						  "status":"berhasil"
 						},
 		}
@@ -176,15 +147,16 @@
 	"membuat_DBServer":{
 			    "install_MySQL":"sudo apt install mysql-server",
 			    "konfigurasi_MySQL":{
-						   "ganti_bind-address":"127.0.0.1",
+						   "ganti_bind-address":"0.0.0.0",
+						   "ganti_mysqlx-bind-address" : "0.0.0.0",
 						   "restart_mysql":"sudo systemctl restart mysql"
 						},
-			    "ijin_Akses_MySQL_LewatFirewall":"sudo ufw allow mysql"
+			    "ijin_Akses_webserver_ke_MySQL_LewatFirewall":"sudo ufw allow from 10.0.2.5 to any port 3306"
 			    "buat_database":"CREATE DATABASE listPekerja;",
 			    "membuat_userLokal":"CREATE USER 'abdi'@'localhost' IDENTIFIED BY 'password';",
 			    "membuat_userRemote":"CREATE USER 'webserver'@'127.0.0.1' IDENTIFIED BY 'password';",
 			    "ijin_seluruhAksesdidatabase_listPekerja_localUser":"GRANT ALL PRIVILEGES ON listPekerja.* TO 'abdi'@'localhost';",
-			    "ijin_seluruhAksesdidatabase_listPekerja_remoteUeser":"GRANT ALL PRIVILEGES ON listPekerja.* TO 'webserver'@'127.0.0.1';",
+			    "ijin_Aksesdidatabase_listPekerja_remoteUeser":"GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON listPekerja.* TO 'webserver'@'127.0.0.1';",
 			},
 	"Test_remote_local_connection":{
 					  "login_userLokal":"mysql -u abdi -p",
@@ -193,7 +165,18 @@
 					  "login_userRemote":{
 								"ssh_ke_webserver":"ssh webserver",
 								"install_mysql-client":"sudo apt install mysql-client",
-								"coba_koneksi":"mysql -u webserver -h 127.0.0.1 -p"
+								"coba_koneksi":"mysql -u webserver -h 10.0.2.6 -p"
 								"cek_status":"berhasil"
 							},
-				}
+				},
+	"Buat_Shared_Folder" : {
+				  "VBoxManage":"VBoxManage sharedfolder add DBServer --name dbshare --hostpath "I:\Abdi\Perkuliahan\Semester 6\cloudVirtualization\sharedFolders\dbData"",
+				  "mounting_sharedFolder":"sudo mount -t vboxsf -o uid=1000,gid=1000 dbshare /var/lib/mnt/db"
+			       },
+	"menyimpan_DataMysql_keSharedFolder":{
+						"matikan_mysql":"sudo systemctl stop mysql",
+						"menduplikat_datamysql":"sudo cp -r /var/lib/mysql/. /var/lib/mnt/db",
+						"menambahkan_alias_diapparmor.d/tunables/alias":"alias /var/lib/mysql -> /var/lib/mnt/db 'hal ini berfungsi untuk mengalihkan jalur yang mengarah ke /var/lib/mysql menjadi ke /var/lib/mnt/db'",
+						"restart_uppermor":"sudo systemctl restart uppermor"
+						"nyalakan_database":"sudo systemctl start mysql",
+					},
