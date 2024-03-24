@@ -176,7 +176,7 @@
 	"menyimpan_DataMysql_keSharedFolder":{
 						"matikan_mysql":"sudo systemctl stop mysql",
 						"menduplikat_datamysql":"sudo cp -r /var/lib/mysql/. /var/lib/mnt/db",
-						"menambahkan_alias_diapparmor.d/tunables/alias":"alias /var/lib/mysql -> /var/lib/mnt/db 'hal ini berfungsi supaya mysql dapat mengases file yang berada pada shared folders'",
+						"menambahkan_alias_diapparmor.d/tunables/alias":"alias /var/lib/mysql -> /var/lib/mnt/db 'hal ini berfungsi untuk mengalihkan jalur yang mengarah ke /var/lib/mysql menjadi ke /var/lib/mnt/db'",
 						"restart_uppermor":"sudo systemctl restart uppermor"
 						"nyalakan_database":"sudo systemctl start mysql",
 					},
