@@ -80,7 +80,7 @@
 			},
   "Connect_SSH_ubuntu_Server2":{
 				"command":"ssh abdi@10.0.2.6",
-				"status:"berhasil"
+				"status":"berhasil"
 			       },
   "coba_Ping":{
 		"install_iputils":"sudo apt install iptils_ping",
@@ -124,13 +124,13 @@
 							     "portGuest":"80"
 							},
 			    "konfigurasi_apache2":{
-				"langkah 1":"tambahkan servername pada konfigurasi apache2"
+				"langkah 1":"tambahkan servername pada konfigurasi apache2",
 				"langkah 2":"menambahkan ip vm sebagai servername untuk konfiguarsi apache2",
 				"langkah 3":"tambahkan virtual host file kedalam /etc/apache2/sites-available/000-default.conf",
 				"settingan_Proksi":{
 				 		    "ProxyPass":"ProxyPass / http://127.0.0.1:3000/ nocanon",
 						    "ProxyPassReverse":"ProxyPassReverse / http://127.0.0.1:3000/"
-						  }
+						  },
 				"restart apache":"sudo systemctl restart apache2",
 				},
 			    "install_git":"sudo apt install git",
@@ -170,7 +170,7 @@
 							},
 				},
 	"Buat_Shared_Folder" : {
-				  "VBoxManage":"VBoxManage sharedfolder add DBServer --name dbshare --hostpath "I:\Abdi\Perkuliahan\Semester 6\cloudVirtualization\sharedFolders\dbData"",
+				  "VBoxManage":"VBoxManage sharedfolder add DBServer --name dbshare --hostpath 'I:\Abdi\Perkuliahan\Semester 6\cloudVirtualization\sharedFolders\dbData'",
 				  "mounting_sharedFolder":"sudo mount -t vboxsf -o uid=1000,gid=1000 dbshare /var/lib/mnt/db"
 			       },
 	"menyimpan_DataMysql_keSharedFolder":{
