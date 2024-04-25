@@ -1,18 +1,19 @@
 {
-	Install_Docker:{
+	"Install_Docker":{
 			"Uninstall versi lama ":"for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done",
 			"Update apt" : "sudo apt-get update",
 			"Menginstall paket ca-certificate":"sudo apt-get install ca-certificates curl",
 			"membuat direktori baru dengan izin rwxr-xr-x pada direktori /etc/apt/keyrings":"sudo install -m 0755 -d /etc/apt/keyrings",
 			"mengunduh docker public key dan menyimpannya ke dalam file docker.asc yang ada pada direktori /etc/apt/keyrings/":"sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc",
 			"memberikan akses ke seluruh user supaya seluruh user dapat membaca file docker.asc":"sudo chmod a+r /etc/apt/keyrings/docker.asc",
-			"menambahkan repositori docker ke dalam daftar repositori APT pada sistem ubuntu server":"echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null"
-			"update repositori apt":"sudo apt-get update"
+			"menambahkan repositori docker ke dalam daftar repositori APT pada sistem ubuntu server": "echo \\  'deb [arch=$(dpkg --print-architecture) signed-by=\/etc\/apt\/keyrings\/docker.asc] https:\/\/download.docker.com\/linux\/debian \\  $(. \/etc\/os-release && echo '$VERSION_CODENAME') stable' | \\  sudo tee \/etc\/apt\/sources.list.d\/docker.list > \/dev\/null",
+			"update repositori apt":"sudo apt-get update",
 			"jalankan docker ":"sudo systemctl start docker.services docker.socket",
-			"cek status docker":"sudo systemctl status docker"
+			"cek status docker":"sudo systemctl status docker",
 			"jalankan image hello-world":"sudo docker run hello-world"
+			},
+	"Post-Installation":{
+			"Membuat Docker Group":"sudo groupadd docker",
+			"Tambahkan user ke dalam docker group":"sudo usermod -aG docker $USER"
 			}
-}
+},
